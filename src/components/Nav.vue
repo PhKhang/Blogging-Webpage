@@ -1,7 +1,7 @@
 <template>
     <nav>
         <div class="logo">
-            <router-link to="/">
+            <router-link class="logo-link" to="/">
                 <img src="@/../public/Vector1.svg" alt="">
             </router-link>
 
@@ -40,9 +40,15 @@ nav {
 
     .logo {
         margin-left: 4px;
+        height: 100%;
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+        }
 
         img {
-            height: 40px;
+            height: 36px;
             object-fit: cover;
         }
     }
