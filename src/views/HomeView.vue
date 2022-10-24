@@ -2,13 +2,12 @@
   <Nav></Nav>
 
   <div class="block header">
-    <img class="animate__animated animate__fadeIn animate__faster"
-      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-      alt="">
+    <img class="animate__animated animate__fadeIn animate__faster" src="header.avif" alt="">
 
 
     <div class="text">
-      <h1>Hello, and welcome to the world of business,<br> from Human Resources to Marketing, all at your convenience.
+      <h1>Hello, and welcome to the world of business,<br> from Human Resources to Marketing,<br> all at your
+        convenience.
       </h1>
     </div>
   </div>
@@ -52,6 +51,7 @@ export default {
   min-height: auto;
   background-color: transparent;
 
+  transition: all .4s ease;
 
   img {
     position: absolute;
@@ -77,6 +77,7 @@ export default {
     align-items: center;
 
     text-align: left;
+    transition: all .4s ease;
 
     h1 {
       font-weight: 700;
