@@ -81,7 +81,7 @@ nav {
 
 @media screen and (max-width: 480px) {
     nav a {
-        width: 80px;
+        width: 80px !important;
     }
 }
 </style>
