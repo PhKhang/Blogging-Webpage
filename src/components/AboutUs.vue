@@ -33,7 +33,6 @@ export default {
         }
     },
     created() {
-        this.getPosts()
         this.getAuthors()
     }
 }
@@ -43,32 +42,29 @@ export default {
     <div class="main">
         <div class="content">
 
-            <div id="blog-home">
+            <h1>Our team</h1>
 
-                <!-- Create `v-for` and apply a `key` for Vue. Here we are using a combination of the slug and index. -->
-                <div class="post animate__animated animate__fadeInUp" v-for="(post, index) in posts"
-                    :key="post.slug + '_' + index">
-                    <router-link :to="'/blog/' + post.slug">
+            <div class="author-home">
+                <div class="author animate__animated animate__fadeInUp" v-for="(author, index) in authors"
+                    :key="author.slug + '_' + index">
+                    <router-link :to="'/blog/' + author.slug">
 
-                        <article class="media">
+                        <figure>
+                            <img v-if="author.profile_image" :src="author.profile_image" alt="">
+                            <img v-else src="http://via.placeholder.com/250x250" alt="">
+                        </figure>
 
-                            <figure>
-                                <img v-if="post.featured_image" :src="post.featured_image" alt="">
-                                <img v-else src="http://via.placeholder.com/250x250" alt="">
-                            </figure>
 
-                            <div class="color-block"></div>
-
-                            <div class="title-des">
-                                <h2>{{ post.title }}</h2>
-                                <p>{{ post.summary }}</p>
-                            </div>
-
-                        </article>
+                        <div class="author-des">
+                            <h2>{{ author.first_name + ' ' + author.last_name }}</h2>
+                            <h3>{{ author.title }}</h3>
+                            <p>{{ author.bio }}</p>
+                        </div>
 
                     </router-link>
-                </div>
 
+                </div>
+                <div class="break" v-if="index == 1"></div>
 
             </div>
 
@@ -99,89 +95,13 @@ export default {
     max-width: 1400px;
     height: fit-content;
     background-color: transparent;
-}
 
-#blog-home {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-#blog-home .post {
-    display: inline-block;
-    position: relative;
-
-    top: -60px;
-
-    width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1/1;
-    overflow: initial;
-
-    margin-bottom: 20px;
-    margin-right: 26px;
-    background-color: transparent;
-    border: none;
-
-
-    article {
-        position: relative;
-        display: flex;
-        flex-wrap: nowrap;
-
-        height: 100%;
-        width: 100%;
-
-
-        figure {
-            margin: 0;
-            width: 60%;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.436);
-
-                /* position: initial; */
-            }
-        }
-
-        .color-block {
-            position: absolute;
-            left: 30%;
-            width: 40%;
-            height: 100%;
-            background-color: rgba(0, 0, 255, 0.319);
-            background-color: transparent;
-        }
-
-        .title-des {
-            position: relative;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-
-            font-family: 'Playfair Display', serif;
-            padding-left: 12px;
-            z-index: 2;
-
-            h2 {
-                margin: 0;
-                width: 170px;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-
+    h1 {
+        max-width: 680px;
+        margin: auto;
     }
 }
+
 
 .author-home {
     display: flex;

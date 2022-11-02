@@ -16,18 +16,22 @@
     <Blogs></Blogs>
   </div>
 
+  <div class="filler"></div>
+  
   <div class="block">
-
+    <About/>
   </div>
 </template>
 
 <script>
 import Blogs from '@/components/Blogs.vue'
 import Nav from '@/components/Nav.vue'
+import About from '@/components/AboutUs.vue'
 export default {
   components: {
     Blogs,
-    Nav
+    Nav,
+    About
   }
 }
 </script>
@@ -41,6 +45,16 @@ export default {
 
   width: 100%;
   min-height: 100vh;
+  background-color: transparent;
+
+  padding-top: 0.05px;
+}
+
+.filler {
+  position: relative;
+
+  width: 100%;
+  min-height: 5vh;
   background-color: transparent;
 
   padding-top: 0.05px;
