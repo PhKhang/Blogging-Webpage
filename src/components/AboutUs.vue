@@ -136,6 +136,11 @@ export default {
                     border-radius: 50%;
                     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.436);
 
+                    transition: all .4s ease;
+                }
+
+                img:hover {
+                    transform: scale(1.1);
                 }
             }
 
