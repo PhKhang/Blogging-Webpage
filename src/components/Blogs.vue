@@ -229,13 +229,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
-    
-
-    .break {
-        flex-basis: 100%;
-        height: 0;
-    }
+    gap: 10px;
 
     .author {
         display: flex;
@@ -258,8 +252,8 @@ export default {
                 aspect-ratio: 1/1;
 
                 img {
-                    height: 100%;
                     width: 100%;
+                    aspect-ratio: 1/1 !important;
                     object-fit: cover;
                     border-radius: 50%;
                 }
