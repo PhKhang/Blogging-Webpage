@@ -8,7 +8,8 @@ export default {
     data() {
         return {
             page_title: 'Blog',
-            posts: []
+            posts: [],
+            authors: []
         }
     },
     methods: {
@@ -16,13 +17,24 @@ export default {
             butter.post.list({
                 page: 1,
                 page_size: 10
-            }).then(res => {
-                this.posts = res.data.data
             })
+                .then(res => {
+                    this.posts = res.data.data
+                    console.log(this.posts)
+                })
+        },
+
+        getAuthors() {
+            butter.author.list({ "include": "recent_posts" })
+                .then(res => {
+                    this.authors = res.data.data
+                    console.log(this.authors)
+                })
         }
     },
     created() {
         this.getPosts()
+        this.getAuthors()
     }
 }
 </script>
@@ -57,6 +69,48 @@ export default {
                     </router-link>
                 </div>
 
+
+            </div>
+
+            <div class="author animate__animated animate__fadeInUp">
+                <router-link :to="'/blog/' + author.slug" v-if="index >= 2">
+
+                    <figure>
+                        <img v-if="author.profile_image" :src="author.profile_image" alt="">
+                        <img v-else src="http://via.placeholder.com/250x250" alt="">
+                    </figure>
+
+
+                    <div class="author-des">
+                        <h2>{{ author.first_name + ' ' + author.last_name }}</h2>
+                        <h3>{{ author.title }}</h3>
+                        <p>{{ author.bio }}</p>
+                    </div>
+
+                </router-link>
+            </div>
+
+            <div class="author-home">
+                <div class="author animate__animated animate__fadeInUp" v-for="(author, index) in authors"
+                    :key="author.slug + '_' + index">
+                    <router-link :to="'/blog/' + author.slug">
+
+                        <figure>
+                            <img v-if="author.profile_image" :src="author.profile_image" alt="">
+                            <img v-else src="http://via.placeholder.com/250x250" alt="">
+                        </figure>
+
+
+                        <div class="author-des">
+                            <h2>{{ author.first_name + ' ' + author.last_name }}</h2>
+                            <h3>{{ author.title }}</h3>
+                            <p>{{ author.bio }}</p>
+                        </div>
+
+                    </router-link>
+
+                </div>
+                <div class="break" v-if="index == 1"></div>
 
             </div>
 
@@ -168,6 +222,74 @@ export default {
             }
         }
 
+    }
+}
+
+.author-home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    
+
+    .break {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .author {
+        display: flex;
+        margin-bottom: 20px;
+
+        a {
+            width: 240px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            figure {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                aspect-ratio: 1/1;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+
+            .author-des {
+                h2 {
+                    margin: 8px 0;
+                }
+
+                h3 {
+                    margin: 8px 0 2px;
+                    font-weight: 400;
+                    color: rgb(74, 74, 74);
+                }
+                p {
+                    margin: 8px 0;
+                }
+            }
+        }
+
+
+    }
+
+    :first-child {
+        flex-basis: 100%;
+
+        a > * {
+            width: 340px !important;
+        }
     }
 }
 
