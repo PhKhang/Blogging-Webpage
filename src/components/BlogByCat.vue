@@ -57,15 +57,12 @@ export default {
                     :key="cat.slug + '_' + index">
                     <div class="aut">
 
-                        <figure>
-                            <img v-if="cat.profile_image" :src="cat.profile_image" alt="">
-                            <img v-else src="http://via.placeholder.com/250x250" alt="">
-                        </figure>
+                    
                         <div class="author-des">
                             <h2>{{ cat.name }}</h2>
                             <h3>{{ cat.title }}</h3>
                             <p>{{ cat.bio }}</p>
-                            <p class="email"> <i class='bx bxs-envelope' ></i> {{ cat.email }}</p>
+                            <p class="email"> {{ cat.email }}</p>
                         </div>
 
                     </div>
