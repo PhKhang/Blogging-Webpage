@@ -2,7 +2,7 @@
   <Nav></Nav>
 
   <div class="block header">
-    <img class="animate__animated animate__fadeIn animate__faster" src="header.avif" alt="">
+    <img class="animate__animated animate__fadeIn animate__faster" src="header.webp" alt="">
 
 
     <div class="text">
@@ -19,7 +19,11 @@
   <div class="filler"></div>
   
   <div class="block">
-    <About/>
+    <About></About>
+  </div>
+
+  <div class="block">
+    <Cat></Cat>
   </div>
 </template>
 
@@ -27,11 +31,14 @@
 import Blogs from '@/components/Blogs.vue'
 import Nav from '@/components/Nav.vue'
 import About from '@/components/AboutUs.vue'
+import Cat from '@/components/BlogByCat.vue'
+
 export default {
   components: {
     Blogs,
     Nav,
-    About
+    About,
+    Cat
   }
 }
 </script>

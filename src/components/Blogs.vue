@@ -34,7 +34,6 @@ export default {
     },
     created() {
         this.getPosts()
-        this.getAuthors()
     }
 }
 </script>
@@ -120,7 +119,7 @@ export default {
     overflow: initial;
 
     margin-bottom: 20px;
-    margin-right: 26px;
+    margin-right: 10px;
     background-color: transparent;
     border: none;
 
@@ -166,7 +165,6 @@ export default {
             justify-content: center;
             width: 100%;
 
-            font-family: 'Playfair Display', serif;
             padding-left: 12px;
             z-index: 2;
 

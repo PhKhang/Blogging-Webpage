@@ -29,12 +29,9 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    console.log(savedPosition)
     if (savedPosition) {
-      console.log('old')
       return savedPosition
     } else {
-      console.log('top')
       return { top: 0 }
     }
   }

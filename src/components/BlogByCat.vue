@@ -30,10 +30,18 @@ export default {
                     this.authors = res.data.data
                     console.log(this.authors)
                 })
+        },
+
+        getCategories() {
+            butter.category.list({ "include": "recent_posts" })
+                .then(res => {
+                    this.authors = res.data.data
+                    console.log(this.authors)
+                })
         }
     },
     created() {
-        this.getAuthors()
+        this.getCategories()
     }
 }
 </script>
@@ -42,22 +50,22 @@ export default {
     <div class="main">
         <div class="content">
 
-            <h1>Our team</h1>
+            <h1>See by Category</h1>
 
             <div class="author-home">
-                <div class="author animate__animated animate__fadeInUp" v-for="(author, index) in authors"
-                    :key="author.slug + '_' + index">
+                <div class="author animate__animated animate__fadeInUp" v-for="(cat, index) in authors"
+                    :key="cat.slug + '_' + index">
                     <div class="aut">
 
                         <figure>
-                            <img v-if="author.profile_image" :src="author.profile_image" alt="">
+                            <img v-if="cat.profile_image" :src="cat.profile_image" alt="">
                             <img v-else src="http://via.placeholder.com/250x250" alt="">
                         </figure>
                         <div class="author-des">
-                            <h2>{{ author.first_name + ' ' + author.last_name }}</h2>
-                            <h3>{{ author.title }}</h3>
-                            <p>{{ author.bio }}</p>
-                            <p class="email"> <i class='bx bxs-envelope' ></i> {{ author.email }}</p>
+                            <h2>{{ cat.name }}</h2>
+                            <h3>{{ cat.title }}</h3>
+                            <p>{{ cat.bio }}</p>
+                            <p class="email"> <i class='bx bxs-envelope' ></i> {{ cat.email }}</p>
                         </div>
 
                     </div>
@@ -102,7 +110,6 @@ export default {
     h1 {
         max-width: 680px;
         margin: auto;
-        margin-bottom: 20px;
     }
 }
 

@@ -1,2 +1,2 @@
 import Butter from "buttercms";
-export const butter = Butter("d2b9ccfa6c308444deb934354ca5c0e63b945d40");
+export const butter = Butter("bf42555b2ed46ee873805fc522a6fa8d3afd7a0f");
