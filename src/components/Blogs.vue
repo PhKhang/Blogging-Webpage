@@ -16,7 +16,8 @@ export default {
         getPosts() {
             butter.post.list({
                 page: 1,
-                page_size: 10
+                page_size: 10,
+                exclude_body: true,
             })
                 .then(res => {
                     this.posts = res.data.data

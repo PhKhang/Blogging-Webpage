@@ -3,8 +3,6 @@
 
   <div class="block header">
     <img class="animate__animated animate__fadeIn animate__faster" src="header.webp" alt="">
-
-
     <div class="text">
       <h1>Hello, and welcome to the world of business,<br> from Human Resources to Marketing,<br> all at your
         convenience.
@@ -17,14 +15,16 @@
   </div>
 
   <div class="filler"></div>
-  
-  <div class="block">
-    <About></About>
-  </div>
 
   <div class="block">
     <Cat></Cat>
   </div>
+
+  <div class="block">
+    <About></About>
+  </div>
+
+  <Footer></Footer>
 </template>
 
 <script>
@@ -32,13 +32,15 @@ import Blogs from '@/components/Blogs.vue'
 import Nav from '@/components/Nav.vue'
 import About from '@/components/AboutUs.vue'
 import Cat from '@/components/BlogByCat.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
     Blogs,
     Nav,
     About,
-    Cat
+    Cat,
+    Footer
   }
 }
 </script>

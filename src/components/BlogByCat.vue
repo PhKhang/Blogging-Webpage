@@ -52,17 +52,17 @@ export default {
 
             <h1>See by Category</h1>
 
-            <div class="author-home">
-                <div class="author animate__animated animate__fadeInUp" v-for="(cat, index) in authors"
+            <div class="cat-home">
+                
+                <div class="cat animate__animated animate__fadeInUp" v-for="(cat, index) in authors"
                     :key="cat.slug + '_' + index">
-                    <div class="aut">
+                    <div class="ca">
 
                     
                         <div class="author-des">
                             <h2>{{ cat.name }}</h2>
-                            <h3>{{ cat.title }}</h3>
-                            <p>{{ cat.bio }}</p>
-                            <p class="email"> {{ cat.email }}</p>
+                            <p>{{ }}</p>
+                            <p class="email"> {{ }}</p>
                         </div>
 
                     </div>
@@ -107,31 +107,32 @@ export default {
     h1 {
         max-width: 680px;
         margin: auto;
+        margin-bottom: 20px;
     }
 }
 
 
-.author-home {
+.cat-home {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
-    gap: 50px;
 
-    .author {
+    max-width: 700px;
+    margin: auto;
+
+    .cat {
         display: flex;
-        margin-bottom: 20px;
 
-        .aut {
+        .ca {
             width: 240px;
             box-sizing: border-box;
             margin: 0 40px;
 
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-
-            text-align: center;
 
 
             figure {
@@ -179,13 +180,6 @@ export default {
 
     }
 
-    :first-child {
-        flex-basis: 100%;
-
-        .aut>* {
-            width: 340px !important;
-        }
-    }
 }
 
 .animate__animated.animate__fadeInUp {
