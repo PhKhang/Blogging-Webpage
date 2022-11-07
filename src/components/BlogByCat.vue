@@ -50,7 +50,7 @@ export default {
     <div class="main">
         <div class="content">
 
-            <h1>See by Category</h1>
+            <h1>See by our blogs by Category</h1>
 
             <div class="cat-home">
 
