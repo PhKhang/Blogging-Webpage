@@ -11,6 +11,7 @@
 
             <p>The world of business,<br> from Human Resources to Marketing,<br> all at your
                 convenience.</p>
+            <p class="copy">&copy; Copyright 2022, Tieu's Blog</p>
         </div>
 
         <div class="socials">
@@ -42,10 +43,22 @@ footer {
 
 }
 
+.copy {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    text-align: center;
+    margin: 10px;
+}
+
 .team-name {
     display: flex;
     align-items: center;
     gap: 50px;
+    margin-bottom: 50px;
+
     .logo {
         margin-left: 4px;
         height: 100%;
