@@ -53,19 +53,17 @@ export default {
             <h1>See by Category</h1>
 
             <div class="cat-home">
-                
+
                 <div class="cat animate__animated animate__fadeInUp" v-for="(cat, index) in authors"
                     :key="cat.slug + '_' + index">
-                    <div class="ca">
 
-                    
-                        <div class="author-des">
-                            <h2>{{ cat.name }}</h2>
-                            <p>{{ }}</p>
-                            <p class="email"> {{ }}</p>
+                    <router-link :to="'/category/' + cat.slug">
+                        <div class="ca">
+                            <div class="cat-des">
+                                <h2>{{ cat.name }}</h2>
+                            </div>
                         </div>
-
-                    </div>
+                    </router-link>
 
                 </div>
                 <div class="break" v-if="index == 1"></div>
@@ -84,7 +82,6 @@ export default {
     padding: 0;
     margin: 0;
     width: 100%;
-    min-height: 100vh;
     height: auto;
     background-color: transparent;
 
@@ -94,6 +91,7 @@ export default {
 .bx {
     transform: translate(0px, 3px);
 }
+
 .content {
     padding: 10px;
     margin: auto;
@@ -156,7 +154,7 @@ export default {
                 }
             }
 
-            .author-des {
+            .cat-des {
                 h2 {
                     margin: 8px 0;
                 }
@@ -189,6 +187,20 @@ export default {
 a {
     text-decoration: none;
     color: inherit;
+    outline: none;
+
+    background-image: linear-gradient(black, black);
+    background-size: 0% 0.1em;
+    background-position-x: 0%;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus,
+a:active {
+    background-size: 100% 0.1em;
 }
 
 

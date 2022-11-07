@@ -10,6 +10,7 @@
         <div class="links">
             <router-link to="/">Home</router-link>
             <router-link to="/about">About</router-link>
+            <router-link to="/category/marketing">Category</router-link>
         </div>
     </nav>
 </template>

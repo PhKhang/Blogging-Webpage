@@ -53,10 +53,11 @@ export default {
   position: relative;
 
   width: 100%;
-  min-height: 100vh;
+  min-height: fit-content;
   background-color: transparent;
 
   padding-top: 0.05px;
+  margin: 0 0 100px 0;
 }
 
 .filler {

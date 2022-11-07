@@ -104,6 +104,7 @@ export default {
     max-width: 700px;
 
     margin: 0 auto;
+
 }
 
 #blog-post>>>p,
@@ -121,5 +122,26 @@ li {
     position: relative;
     left: 50%;
     transform: translate(-50%);
+}
+
+#blog-post:deep() a {
+
+    text-decoration: none;
+    color: rgb(88, 88, 88);
+    outline: none;
+
+    background-image: linear-gradient(black, black);
+    background-size: 0% 0.1em;
+    background-position-x: 0%;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+
+}
+
+#blog-post:deep() a:hover,
+a:focus,
+a:active {
+    background-size: 100% 0.1em;
 }
 </style>

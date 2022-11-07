@@ -1,75 +1,99 @@
 <script>
 import { butter } from '@/buttercms'
+import Nav from '@/components/Nav.vue'
 
 export default {
-    name: 'blog-home',
+    name: 'blog-categories',
     components: {
+        Nav
     },
     data() {
         return {
-            page_title: 'Blog',
-            posts: [],
-            authors: []
+            category: 'None',
+            posts: []
         }
     },
     methods: {
-        getPosts() {
-            butter.post.list({
-                page: 1,
-                page_size: 10,
-                exclude_body: true,
+        getCategory() {
+            butter.category.retrieve(this.$route.params.slug, {
+                "include": "recent_posts"
             })
                 .then(res => {
-                    this.posts = res.data.data
+                    this.category = res.data.data
+                    this.posts = this.category.recent_posts
                     console.log(this.posts)
+                    console.log(this.posts[this.posts.length - 1].featured_image)
+                }).catch(res => {
+                    console.log(res)
                 })
         }
     },
     created() {
-        this.getPosts()
+        this.getCategory()
     }
 }
 </script>
 
 <template>
+
+
     <div class="main">
+        <Nav></Nav>
+
+        <img class="header-img" v-if="posts[0].featured_image" :src="posts[0].featured_image" alt="stuff">
+        <img class="header-img" v-else src="http://via.placeholder.com/250x250" alt="">
+        <h1 class="cat-name">{{ category.name }}</h1>
+
+
+
         <div class="content">
 
             <div id="blog-home">
-
                 <!-- Create `v-for` and apply a `key` for Vue. Here we are using a combination of the slug and index. -->
                 <div class="post animate__animated animate__fadeInUp" v-for="(post, index) in posts"
                     :key="post.slug + '_' + index">
                     <router-link :to="'/blog/' + post.slug">
-
                         <article class="media">
-
                             <figure>
                                 <img v-if="post.featured_image" :src="post.featured_image" alt="">
                                 <img v-else src="http://via.placeholder.com/250x250" alt="">
                             </figure>
-
                             <div class="color-block"></div>
-
                             <div class="title-des">
                                 <h2>{{ post.title }}</h2>
                                 <p>{{ post.summary }}</p>
                             </div>
-
                         </article>
-
                     </router-link>
                 </div>
-
-
             </div>
 
-
         </div>
+
+
     </div>
+
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+.header-img {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cat-name {
+    position: absolute;
+    top: 40px;
+
+    margin-left: 30px;
+    color: white;
+}
+
 .main {
     padding: 0;
     margin: 0;
@@ -137,12 +161,7 @@ export default {
 
                 box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.436);
 
-                transition: all .4s ease;
                 /* position: initial; */
-            }
-
-            img:hover {
-                transform: scale(1.1);
             }
         }
 
@@ -150,8 +169,6 @@ export default {
             position: absolute;
             left: 30%;
             width: 40%;
-            z-index: -2;
-
             height: 100%;
             background-color: rgba(0, 0, 255, 0.319);
             background-color: transparent;
@@ -200,7 +217,6 @@ export default {
             justify-content: center;
 
             text-align: center;
-
 
             figure {
                 padding: 0;
@@ -258,9 +274,5 @@ export default {
 a {
     text-decoration: none;
     color: inherit;
-    outline: none;
 }
-
-
-@media screen and (max-width: 480px) {}
 </style>
