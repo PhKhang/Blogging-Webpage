@@ -77,8 +77,6 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-
-    font-family: 'Merriweather', serif;
     padding: 0;
     margin: 0;
     width: 100%;
