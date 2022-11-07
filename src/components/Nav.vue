@@ -32,7 +32,6 @@ nav {
     width: 100%;
     border: 2px solid white;
     color: white;
-    font-family: 'Playfair Display', serif;
 
     display: flex;
     flex-direction: row;
