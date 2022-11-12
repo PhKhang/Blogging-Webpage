@@ -104,7 +104,7 @@ export default {
     display: inline-block;
     position: relative;
 
-    top: -60px;
+    top: -160px;
 
     width: 100%;
     max-width: 400px;

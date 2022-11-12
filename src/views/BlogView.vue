@@ -22,6 +22,17 @@ export default {
                 })
         }
     },
+    mounted: function () {
+        this.$nextTick(function () {
+
+            setTimeout(function () {
+                document.getElementsByTagName("*").style.background = "black";
+            }, 400);
+
+        })
+
+
+    },
     created() {
         this.getPost()
     }
@@ -59,7 +70,7 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main {
     padding: 0;
     margin: 0;
@@ -102,26 +113,37 @@ export default {
 
 #blog-post {
     max-width: 700px;
+    text-align: justify;
 
     margin: 0 auto;
 
+
+
 }
 
-#blog-post>>>p,
+
+
+#blog-post:deep() p,
 ul,
 li {
     width: 100%;
     text-align: justify;
 }
 
-#blog-post>>>img {
+#blog-post:deep() img {
     max-width: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 6px;
 
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
+    // position: relative;
+    // left: 50%;
+    // transform: translate(-50%);
+}
+
+
+
+#blog-post:deep() pre {
+    white-space: pre-wrap;
 }
 
 #blog-post:deep() a {
@@ -143,5 +165,9 @@ li {
 a:focus,
 a:active {
     background-size: 100% 0.1em;
+}
+
+#blog-post:deep()>* {
+    text-align: justify !important;
 }
 </style>

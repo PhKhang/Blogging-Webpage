@@ -108,4 +108,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  #app {
+    font-size: 14px;
+  }
+}
 </style>
