@@ -1,6 +1,6 @@
 params = {
     'preview': '1',
-    'order': 'name',
+    'order': 'thing',
     'page': '1',
     'page_size': '10',
     'levels': '2'
