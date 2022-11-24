@@ -187,7 +187,7 @@ a {
     color: inherit;
     outline: none;
 
-    background-image: linear-gradient(black, black);
+    background-image: linear-gradient(to right, black, rgb(0, 16, 188));
     background-size: 0% 0.1em;
     background-position-x: 0%;
     background-position-y: 100%;
@@ -198,7 +198,7 @@ a {
 a:hover,
 a:focus,
 a:active {
-    background-size: 100% 0.1em;
+    background-size: 100% 2.2px;
 }
 
 
