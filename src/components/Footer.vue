@@ -90,6 +90,8 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 50px;
+
+
     margin-bottom: 0;
 
     .logo {
